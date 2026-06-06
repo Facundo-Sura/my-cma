@@ -43,7 +43,6 @@
         <!-- Dependencies versions -->
         <sqlite-jdbc.version>3.46.1.3</sqlite-jdbc.version>
         <hibernate-community-dialects.version>6.6.5.Final</hibernate-community-dialects.version>
-        <openai-client.version>0.28.0</openai-client.version>
         <facebook-graph.version>0.2.0</facebook-graph.version>
         <jackson.version>2.18.2</jackson.version>
         <lombok.version>1.18.36</lombok.version>
@@ -113,13 +112,6 @@
                 <groupId>org.hibernate.orm</groupId>
                 <artifactId>hibernate-community-dialects</artifactId>
                 <version>${hibernate-community-dialects.version}</version>
-            </dependency>
-
-            <!-- OpenAI (Azure SDK for Java) -->
-            <dependency>
-                <groupId>com.azure</groupId>
-                <artifactId>azure-ai-openai</artifactId>
-                <version>${openai-client.version}</version>
             </dependency>
 
             <!-- Jackson -->
