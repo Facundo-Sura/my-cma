@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.2</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.mycma</groupId>
+    <artifactId>my-cma-backend</artifactId>
+    <version>1.0.0-beta</version>
+    <packaging>pom</packaging>
+
+    <name>My CMA Backend</name>
+    <description>Community Manager Assistant — Modular Monolith Backend</description>
+
+    <modules>
+        <module>my-cma-core</module>
+        <module>my-cma-infrastructure-persistence</module>
+        <module>my-cma-infrastructure-social-facebook</module>
+        <module>my-cma-infrastructure-social-linkedin</module>
+        <module>my-cma-infrastructure-social-instagram</module>
+        <module>my-cma-infrastructure-ai-openai</module>
+        <module>my-cma-infrastructure-ai-qwen</module>
+        <module>my-cma-application-content</module>
+        <module>my-cma-application-publishing</module>
+        <module>my-cma-application-analytics</module>
+        <module>my-cma-bootstrap</module>
+    </modules>
+
+    <properties>
+        <java.version>25</java.version>
+        <maven.compiler.source>25</maven.compiler.source>
+        <maven.compiler.target>25</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <!-- Dependencies versions -->
+        <sqlite-jdbc.version>3.46.1.3</sqlite-jdbc.version>
+        <hibernate-community-dialects.version>6.6.5.Final</hibernate-community-dialects.version>
+        <openai-client.version>0.28.0</openai-client.version>
+        <facebook-graph.version>0.2.0</facebook-graph.version>
+        <jackson.version>2.18.2</jackson.version>
+        <lombok.version>1.18.36</lombok.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Internal modules -->
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-infrastructure-persistence</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-infrastructure-social-facebook</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-infrastructure-social-linkedin</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-infrastructure-social-instagram</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-infrastructure-ai-openai</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-infrastructure-ai-qwen</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-application-content</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-application-publishing</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mycma</groupId>
+                <artifactId>my-cma-application-analytics</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <!-- SQLite -->
+            <dependency>
+                <groupId>org.xerial</groupId>
+                <artifactId>sqlite-jdbc</artifactId>
+                <version>${sqlite-jdbc.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate.orm</groupId>
+                <artifactId>hibernate-community-dialects</artifactId>
+                <version>${hibernate-community-dialects.version}</version>
+            </dependency>
+
+            <!-- OpenAI (Azure SDK for Java) -->
+            <dependency>
+                <groupId>com.azure</groupId>
+                <artifactId>azure-ai-openai</artifactId>
+                <version>${openai-client.version}</version>
+            </dependency>
+
+            <!-- Jackson -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <!-- Lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- Testing (available in all modules) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <excludes>
+                            <exclude>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                            </exclude>
+                        </excludes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

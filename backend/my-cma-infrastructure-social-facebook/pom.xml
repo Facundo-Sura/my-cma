@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mycma</groupId>
+        <artifactId>my-cma-backend</artifactId>
+        <version>1.0.0-beta</version>
+    </parent>
+
+    <artifactId>my-cma-infrastructure-social-facebook</artifactId>
+    <packaging>jar</packaging>
+
+    <name>My CMA — Infrastructure: Social Facebook</name>
+    <description>Facebook Graph API adapter. OAuth + publishing + analytics.</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.mycma</groupId>
+            <artifactId>my-cma-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+    </dependencies>
+</project>

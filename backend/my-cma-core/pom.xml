@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.mycma</groupId>
+        <artifactId>my-cma-backend</artifactId>
+        <version>1.0.0-beta</version>
+    </parent>
+
+    <artifactId>my-cma-core</artifactId>
+    <packaging>jar</packaging>
+
+    <name>My CMA — Core</name>
+    <description>Pure domain model and port interfaces. Zero external dependencies.</description>
+
+    <dependencies>
+        <!-- Pure Java — no frameworks, no Spring, no JPA -->
+    </dependencies>
+</project>

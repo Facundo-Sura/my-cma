@@ -1,0 +1,66 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: my-cma
+
+  datasource:
+    url: jdbc:sqlite:${user.home}/.mycma/mycma.db
+    driver-class-name: org.sqlite.JDBC
+    username:
+    password:
+
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          batch_size: 25
+
+# Active AI provider: openai | qwen | gemini
+mycma:
+  ai:
+    active-provider: openai
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      model: gpt-4o
+      max-tokens: 1000
+      image-size: 1024x1024
+    qwen:
+      api-key: ${QWEN_API_KEY:}
+      model: qwen-max
+
+  social:
+    facebook:
+      app-id: ${FACEBOOK_APP_ID:}
+      app-secret: ${FACEBOOK_APP_SECRET:}
+      graph-version: v21.0
+    linkedin:
+      client-id: ${LINKEDIN_CLIENT_ID:}
+      client-secret: ${LINKEDIN_CLIENT_SECRET:}
+    instagram:
+      app-id: ${INSTAGRAM_APP_ID:}
+      app-secret: ${INSTAGRAM_APP_SECRET:}
+
+# JWT for local API security
+jwt:
+  secret: ${JWT_SECRET:mycma-local-dev-secret-key-change-in-production}
+  expiration: 86400000  # 24 hours
+
+# Springdoc / Swagger
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.mycma: DEBUG
+    org.springframework.security: INFO
+    org.hibernate.SQL: WARN
